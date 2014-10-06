@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Key Count</title>
+</head>
+<body >
+
+    <form>
+       <textarea id="textarea" placeholder="enter data here">John,2&#13;&#10;Jane,3&#13;&#10;John,4&#13;&#10;Jane,5</textarea>
+       <input type="button" value="Submit" onclick="countItUp(document.getElementById('textarea').value)"/>
+    </form>
+
+    <script type="text/javascript">
+    
+    function countItUp(string) {
+        var a = string.replace(/\W+/g, ',').split(',')
+        var array = [];
+
+        while(a[0]) {
+            array.push(a.splice(0,2));
+        }
+
+        var result =
+            array.reduce(function(obj, arr) {
+                arr[1] = parseInt(arr[1])
+                if (!(arr[0] in obj.nums)) {
+                    obj.nums[arr[0]] = arr
+                    obj.result.push(arr)
+                } else
+                    obj.nums[arr[0]][1] += arr[1]
+                return obj
+            }, {nums:{}, result:[]}).result
+        console.log(result);
+        function taDah(){
+            for ( var i = 0; i < result.length; i++ ) {
+                alert("The total for " + result[i][0] + " is " + result[i][1] +".");
+            }
+        }
+        taDah();
+    };
+
+    </script>
+
+</body>
+</html>
+
