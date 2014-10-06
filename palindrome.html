@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Palindrome</title>
+</head>
+<body>
+
+	<form>
+		 <input id="textarea" type="text" placeholder="is this a palindrome?"/>
+		 <input type="button" value="Submit" onclick="verifyPalindrome(document.getElementById('textarea').value)" />
+	</form>
+
+	<script type="text/javascript">
+
+	function verifyPalindrome (a) {
+		var b = a.replace(/\W/g, '').toLowerCase();
+		var length = b.length;
+		for ( var i = 0; i < Math.floor(length/2); i++ ) {
+				if (b[i] !== b[length - 1 - i]) {
+						alert(a + " is not a palindrome");
+						return false;
+				}
+		}
+		alert(a + " is a palindrome");
+	};
+
+	</script>
+	
+</body>
+</html>
