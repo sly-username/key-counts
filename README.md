@@ -1,0 +1,4 @@
+palindrome
+==========
+
+javascript palindrome script
